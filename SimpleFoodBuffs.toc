@@ -1,0 +1,7 @@
+## Interface: 16001
+## Title: SimpleFoodBuffs
+## Notes: Adds simplified food buffs infos to the tooltip
+## Author: Ignifazius
+## Version: 1.0
+
+SimpleFoodBuffs.lua
