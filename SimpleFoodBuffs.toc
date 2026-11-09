@@ -2,6 +2,7 @@
 ## Title: SimpleFoodBuffs
 ## Notes: Adds simplified food buffs infos to the tooltip
 ## Author: Ignifazius
-## Version: 1.0
+## Version: 1.1
 
 SimpleFoodBuffs.lua
+Locales.lua

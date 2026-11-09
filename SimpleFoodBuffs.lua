@@ -1,4 +1,4 @@
-local ADDON_NAME = "SimpleFoodBuffs"
+local addonName, addon = ...
 
 local function AddCustomTooltipText(tooltip)
     if not tooltip or not tooltip.GetItem then
@@ -9,13 +9,16 @@ local function AddCustomTooltipText(tooltip)
     if not itemLink then return end
 
     local replenishment
-    local replenishment_text = "Use:%s*(.-)%s*Must remain seated"
     local buff
-    local buff_text = "gain%s+(.-)%s+for%s+"
     local experience
-    local xp_text = "increased by%s+(%d+%%)"
     local color_gold = "|cffffd700"
     local color_green = "|cff00ff00"
+    
+    
+    local locale = GetLocale()
+
+    local translations = addon.Locales[locale] or addon.Locales["enUS"]
+    
 
     for i = 1, tooltip:NumLines() do
         local line = _G[tooltip:GetName() .. "TextLeft" .. i]
@@ -24,9 +27,9 @@ local function AddCustomTooltipText(tooltip)
             local text = line:GetText()
 
             if text then
-            	replenishment = text:match(replenishment_text) or replenishment	
-                buff = text:match(buff_text) or buff
-                experience = text:match(xp_text) or experience
+            	replenishment = text:match(translations["replenishment_text"]) or replenishment	
+                buff = text:match(translations["buff_text"]) or buff
+                experience = text:match(translations["xp_text"]) or experience
             end
         end
     end
